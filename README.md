@@ -9,6 +9,9 @@
 
 ## About This apllication
 
-- Esta aplicación se desarroya con el ánimo de aprender el funcionamiento de livewire.
+- Esta aplicación se desarrolla con el ánimo de aprender el funcionamiento de livewire.
+
+- laravel/ui
+- Bootstrap 5.1.3 y jquery 3.6
 
 
