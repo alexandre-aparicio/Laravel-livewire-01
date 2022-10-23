@@ -15,6 +15,8 @@
 
     <!-- Scripts -->
     @vite(['public/assets/css/bootstrap.min.css'])
+    @vite(['public/assets/js/bootstrap.bundle.min.js', 'public/assets/js/jquery-3.6.1.min.js'])
+    @livewireStyles
 
 </head>
 <body>
@@ -78,6 +80,6 @@
         </main>
     </div>
     @vite(['public/assets/js/bootstrap.bundle.min.js', 'public/assets/js/jquery-3.6.1.min.js'])
-
+    @livewireScripts
 </body>
 </html>
