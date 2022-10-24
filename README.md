@@ -14,4 +14,6 @@
 - laravel/ui
 - Bootstrap 5.1.3 y jquery 3.6
 
+https://www.youtube.com/watch?v=uG6QlZ938Ow&list=PLRheCL1cXHruG6bV4tAIF4AhkUMaABf3F&index=3
+
 
