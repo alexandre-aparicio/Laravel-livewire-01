@@ -76,7 +76,24 @@
         </nav>
 
         <main class="py-4">
-            @yield('dashboard-content')
+            <div class="container">
+                <div class="row">
+                    <div class="col-3">
+                        @extends('layouts.menu-lateral')
+                    </div>
+                <div class="col-9">
+                @if (session('status'))
+                    <div class="alert alert-success" role="alert">
+                        {{ session('status') }}
+                    </div>
+                 @endif
+
+                {{ __('You are logged in!') }}
+                </div>
+
+                </div>
+            </div>
+                @yield('content')
         </main>
     </div>
     @vite(['public/assets/js/bootstrap.bundle.min.js', 'public/assets/js/jquery-3.6.1.min.js'])
