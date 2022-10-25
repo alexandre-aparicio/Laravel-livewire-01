@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
 
-   Hola Mundo                 
+    Esta es el dashboard principal           
           
 @endsection

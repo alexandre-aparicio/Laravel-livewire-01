@@ -6,7 +6,7 @@
         <div class="cart">
             <div class="card-header">
                 <h4>Categorias
-                    <a href="" class="btn btn-primary float-end">Añadir categoria</a>
+                    <a href="{{ url('admin/categoria/crear') }}" class="btn btn-primary float-end">Añadir categoria</a>
                 </h4>
             </div>
         </div>
