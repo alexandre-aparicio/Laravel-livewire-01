@@ -2,7 +2,8 @@
   <li>
       <ul>
         Categorias
-     <li>Nueva Categoría</li>
+     <li><a href="{{ url('admin/categoria/crear') }}">Nueva Categoría</a> </li>
+     <li><a href="{{ url('admin/categoria/') }}">Categorías</a> </li>
     </ul>
   </li>
 </ul>

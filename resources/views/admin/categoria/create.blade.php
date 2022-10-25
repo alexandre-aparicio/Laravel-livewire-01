@@ -11,29 +11,33 @@
                 </h3>
             </div>
             <div class="cart-body">
-                <form action="">
+                <form action="{{ url('admin/categoria') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
                     <div class="row">
                         <div class="col-md-6">
                             <label for="name">Nombre:</label>
                             <input type="text" name="name" class="form-control">
+                            @error('name')<small class="text-danger">{{ $message }}</small> @enderror
                         </div>
                     
                         <div class="col-md-6">
                             <label for="slug">Slug:</label>
                             <input type="text" name="slug" class="form-control">
+                            @error('slug')<small class="text-danger">{{ $message }}</small> @enderror
                         </div>
                     </div>
 
                     <div class="col-md-12">
                         <label for="description">Descripción:</label>
                         <textarea  name="description" class="form-control" rows="3"></textarea>
+                        @error('description')<small class="text-danger">{{ $message }}</small> @enderror
                     </div>
                     <div class="row">
-                        <label for="description">Status:</label><br/>
+                        <label for="status">Status:</label><br/>
                         <div class="col-md-6 mb-3">
                             <input type="checkbox" name="status" >
                         </div>
-                        <label for="description">Status:</label><br/>
+                        <label for="image">Imagen:</label><br/>
                         <div class="col-md-6 mb-3">
                             <input type="file" name="image" class="form-control">
                         </div>
