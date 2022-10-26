@@ -38,8 +38,11 @@ class CategoryController extends Controller
         $category->status = $request->status == true ? '1':'0';
         $category->save();
 
-        return redirect('admin/categoria')->with('message', 'Categoria añadida con exito');
+        return redirect('admin/categoria')->with('message', 'Categoria añadida con exito');        
+    }
 
-        
+    public function editar (Category $cat) {
+
+        return ($cat);
     }
 }

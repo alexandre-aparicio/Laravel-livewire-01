@@ -26,8 +26,12 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index']);
 
     //Rutas de las categorias
-    Route::get('categoria', [App\Http\Controllers\Admin\CategoryController::class, 'index']); 
-    Route::get('categoria/crear', [App\Http\Controllers\Admin\CategoryController::class, 'create']); 
-    Route::post('categoria', [App\Http\Controllers\Admin\CategoryController::class, 'store']); 
+    Route::controller(App\Http\Controllers\Admin\CategoryController::class)->group(function () {
+        
+        Route::get('/categoria', 'index'); 
+        Route::get('/categoria/crear', 'create'); 
+        Route::post('/categoria', 'store'); 
+        Route::get('/categoria/$cat/edit', 'edit'); 
+    });    
     
 });
