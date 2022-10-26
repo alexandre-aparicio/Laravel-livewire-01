@@ -28,10 +28,14 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     //Rutas de las categorias
     Route::controller(App\Http\Controllers\Admin\CategoryController::class)->group(function () {
         
+        Route::put('/categoria/{categoria}', 'update');
         Route::get('/categoria', 'index'); 
         Route::get('/categoria/crear', 'create'); 
         Route::post('/categoria', 'store'); 
-        Route::get('/categoria/$cat/edit', 'edit'); 
+        Route::get('/categoria/{categoria}/edit', 'edit'); 
+         
+        
+        
     });    
     
 });

@@ -41,8 +41,17 @@ class CategoryController extends Controller
         return redirect('admin/categoria')->with('message', 'Categoria añadida con exito');        
     }
 
-    public function editar (Category $cat) {
+    public function edit (Category $categoria) 
+    {
 
-        return ($cat);
+        return view('admin.categoria.edit', compact('categoria'));
     }
+    
+    public function update (CategoryFormRequest $request, $categoria) {
+
+        return ($request);
+
+    }
+
+    
 }

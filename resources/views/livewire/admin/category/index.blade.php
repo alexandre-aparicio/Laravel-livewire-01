@@ -28,7 +28,7 @@
                             <td>{{ $categoria->name }}</td>
                             <td>{{ $categoria->status == '1' ? 'Hidden' : 'Visible' }}</td>
                             <td>
-                                <a href="{{ url('/admin/categoria/'. $categoria->id .'/edit')}}" class="btn btn-success">Editar</a>
+                                <a href="{{ url('/admin/categoria/'. $categoria->id.'/edit') }}" class="btn btn-success">Editar</a>
                                 <a href="" class="btn btn-danger">Borrar</a>
                             </td>
                         </tr>                            
