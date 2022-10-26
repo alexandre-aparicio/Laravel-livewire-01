@@ -4,12 +4,14 @@
 
 <div class="row">
     <div class="col-md-12">
-        <div class="cart m-5" >
-            <div class="card-header">
-                <h3>Añadir Categoría
+    <div class="cart">
+            <div class="cart-header mb-4">
+                <h4>Nueva categoría
                     <a href="{{ url('admin/categoria') }}" class="btn btn-primary float-end">Atras</a>
-                </h3>
+                </h4>
+
             </div>
+        
             <div class="cart-body">
                 <form action="{{ url('admin/categoria') }}" method="POST" enctype="multipart/form-data">
                     @csrf

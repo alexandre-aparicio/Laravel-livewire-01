@@ -14,6 +14,7 @@
                 <form action="{{ url('admin/categoria/'. $categoria->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
+                    
                     <div class="row">
                         <div class="col-md-6">
                             <label for="name">Nombre:</label>

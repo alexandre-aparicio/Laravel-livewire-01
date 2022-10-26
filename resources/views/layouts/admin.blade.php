@@ -9,7 +9,11 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-    <!-- Scripts --> @vite(['public/assets/css/bootstrap.min.css']) @vite(['public/assets/js/bootstrap.bundle.min.js', 'public/assets/js/jquery-3.6.1.min.js']) @livewireStyles
+    <!-- Scripts --> 
+    @vite(['public/assets/css/bootstrap.min.css']) 
+    @livewireStyles
+    @vite(['public/assets/js/jquery-3.6.1.min.js'])
+    @vite(['public/assets/js/bootstrap.bundle.min.js'])
   </head>
   <body>
     <div id="dashboard">
@@ -48,10 +52,10 @@
           </div>
         </div>
       </nav>
-      <main class="py-4">
+      <main class="p-4">
       
           <div class="row">
-            <div class="col-2"> 
+            <div class="col-2 p-4"> 
 
             @include('layouts.menu-lateral') 
             
@@ -68,5 +72,8 @@
         
       </main>
     </div> @vite(['public/assets/js/bootstrap.bundle.min.js', 'public/assets/js/jquery-3.6.1.min.js']) @livewireScripts
+  @livewireScripts
+  @stack('script')
+  
   </body>
 </html>
