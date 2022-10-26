@@ -29,7 +29,7 @@
                             <td>{{ $marca->name }}</td>
                             <td>{{ $marca->status == '1' ? 'Hidden' : 'Visible' }}</td>
                             <td>
-                                <a href="{{ url('/admin/marca/'. $marca->id.'/edit') }}" class="btn btn-success">Editar</a>
+                                <a href="#" wire:click="editMarca({{$marca->id}})" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#updateMarcaModal">Editar</a>
                                 <a href="#" wire:click="deleteMarca({{$marca->id}})" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">Borrar</a>
                             </td>
                         </tr>                            
@@ -40,7 +40,7 @@
                         
                     </table>
                     <div>
-                        
+                       {{ $marcas->links() }} 
                     </div>
                     
                 </div>
@@ -54,6 +54,7 @@
 <script>
     window.addEventListener('close-modal', event => {
      $("#addMarcaModal").modal('hide'); 
+     $("#updateMarcaModal").modal('hide'); 
      console.log("Has hecho Click")               
 })
 </script>

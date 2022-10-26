@@ -14,6 +14,7 @@ class Index extends Component
     protected $paginationTheme = 'bootstrap';
 
     public $name, $slug, $status;
+    public $marca_id;
 
     public function rules() {
 
@@ -47,9 +48,48 @@ class Index extends Component
 
     }
 
+    public function editMarca(int $marca_id) {
+
+        $this->marca_id = $marca_id;
+       $marca = Marca::findOrfail($marca_id);
+       $this->name = $marca->name;
+       $this->slug = $marca->slug;
+       $this->status = $marca->status;
+    }
+
+    public function updateMarca() 
+    {
+        $validateData = $this->validate();
+        
+        Marca::findOrfail($this->marca_id)->update([
+            'name' => $this->name,
+            'slug' => Str::slug($this->slug),
+            'status' => $this->status == true ? '1' : '0'
+
+        ]);
+        session()->flash('message', 'Marca Editada con éxito');
+        $this->dispatchBrowserEvent('close-modal');
+        $this->resetInput();
+    }
+
+    public function deleteMarca($marca_id) {
+
+        $this->marca_id = $marca_id;
+    }
+
+    public function destroyMarca() {
+
+        $marca = Marca::find($this->marca_id);        
+        $marca->delete();
+        session()->flash('message', 'Marca Borrada');
+        
+        $this->dispatchBrowserEvent('close-modal'); 
+    }
+
+
     public function render()
     {
-        $marcas = Marca::all();
+        $marcas = Marca::orderBy('id', 'DESC')->paginate(3);
         return view('livewire.admin.marca.index', ['marcas' => $marcas])
         ->extends('layouts.admin')
         ->section('content');
