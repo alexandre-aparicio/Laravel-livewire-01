@@ -55,7 +55,8 @@
     window.addEventListener('close-modal', event => {
      $("#addMarcaModal").modal('hide'); 
      $("#updateMarcaModal").modal('hide'); 
-     console.log("Has hecho Click")               
+     $("#deleteModal").modal('hide'); 
+          
 })
 </script>
 

@@ -36,6 +36,11 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
         
     }); 
 
+    Route::controller(App\Http\Controllers\Admin\ProductoController::class)->group(function () {  
+    
+        Route::get('/productos', 'index'); 
+    });
+        
     Route::get('/marcas', App\Http\Livewire\Admin\Marca\Index::class);
     
     

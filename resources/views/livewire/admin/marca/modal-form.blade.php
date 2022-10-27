@@ -1,3 +1,24 @@
+<!-- Delete Modal -->
+<div wire:ignore.self class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Borrar categoría</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+         </div>
+         <form wire:submit.prevent="destroyMarca">
+            <div class="modal-body">
+               <h6>Estas seguro que quieres borrar esta Marca?</h6>
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+               <button type="submit" class="btn btn-primary">Borrar</button>
+            </div>
+         </form>
+      </div>
+   </div>
+</div>
+
 <!-- Update Marca Modal -->
 <div wire:ignore.self class="modal fade" id="updateMarcaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
    <div class="modal-dialog">

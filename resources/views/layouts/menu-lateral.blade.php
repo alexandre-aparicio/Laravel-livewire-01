@@ -9,8 +9,8 @@
   <li>
       <ul>
         Marcas
-     <li><a href="{{ url('admin/marca/crear') }}">Nueva Marca</a> </li>
-     <li><a href="{{ url('admin/marca/') }}">Marcas</a> </li>
+     <li><a href="#" data-bs-toggle="modal" data-bs-target="#addMarcaModal">Nueva Marca</a> </li>
+     <li><a href="{{ url('admin/marcas/') }}">Marcas</a> </li>
     </ul>
   </li>
   <li>
