@@ -14,7 +14,9 @@ use App\Http\Requests\ProductFormRequest;
 class ProductoController extends Controller
 {
     public function index() {
-        return view('admin.producto.index');
+        
+        $products = Producto::all();
+        return view('admin.producto.index', compact('products'));
     }
 
     public function create() {
@@ -46,9 +48,28 @@ class ProductoController extends Controller
             'trending' => $request->trending == true ?  '1' : '0'
 
         ]);
+
+        if ($request->hasFile('image')) {
+
+            $uploadPath = 'uploads/products';
+            $i=1;
+            foreach($request->file('image') as $imageFile) {
+                
+                $extension = $imageFile->getClientOriginalExtension();
+                $filename = time() . '-'. $i++ . '.' . $extension;
+                $imageFile->move($uploadPath ,$filename);
+                $finalImagePathName = $uploadPath . '-' . $filename;
+
+                $product->productImages()->create([
+                    'producto_id' => $product->id,
+                    'image' => $finalImagePathName,
+                ]);
+            }
+            
+        }
         
 
-        return "Viva la vida looca";
+        return redirect('admin/producto')->with('message', 'Articulo insertado correctamente');
 
     }
 }

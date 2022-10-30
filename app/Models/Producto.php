@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use App\Models\PeoductpImage;
+
 class Producto extends Model
 {
     use HasFactory;
@@ -25,4 +27,10 @@ class Producto extends Model
         'trending',
         'status'
     ]; 
+
+    public function productImages() {
+        return $this->hasMany(ProductoImage::class, 'producto_id', 'id');
+    }
 }
+
+
