@@ -15,7 +15,7 @@
 
             </div>
             <div class="cart-body">
-                <div class="table table-bordered table-striped">
+                <table class="table table-bordered table-striped">
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -31,15 +31,25 @@
                     <tbody>
                         @forelse($products as $product)
                         <tr>
-                            <td></td>
+                            <td>{{ $product->id }}</td>
+                            <td>{{ $product->name }}</td>
+                            <td>{{ $product->category->name}}</td>
+                            <td>{{ $product->selling_price }}</td>
+                            <td>{{ $product->quantity }}</td>
+                            <td>{{ $product->status }}</td>
+                            <td>
+                                <a href="{{ url('admin/producto/' . $product->id . '/edit')}}" class="btn btn-sm btn-success">Editar</a>
+                                <a href="#" class="btn btn-sm btn-danger">Borrar</a>
+
+                            </td>
                         </tr>
                         @empty
                         <tr>
                             <td>No products Available</td>
                         </tr>
                         @endforelse
-
-                </div>
+                    </tbody>
+</table>
 
             </div>
         </div>

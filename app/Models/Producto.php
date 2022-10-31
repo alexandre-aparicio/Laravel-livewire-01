@@ -5,7 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-use App\Models\PeoductpImage;
+use App\Models\PeoductoImage;
+use App\Models\Category;
 
 class Producto extends Model
 {
@@ -27,6 +28,10 @@ class Producto extends Model
         'trending',
         'status'
     ]; 
+
+    public function category() {
+        return $this->belongsTo(Category::class, 'category_id', 'id');
+    }
 
     public function productImages() {
         return $this->hasMany(ProductoImage::class, 'producto_id', 'id');
