@@ -39,10 +39,12 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::controller(App\Http\Controllers\Admin\ProductoController::class)->group(function () {  
     
         Route::get('/producto', 'index'); 
-        Route::get('/producto/crear', 'create');
-        Route::post('/producto', 'store');  
+        Route::get('/producto/crear', 'create');        
+        Route::post('/producto', 'store');           
         Route::get('/producto/{producto}/edit', 'edit'); 
-        Route::put('/producto/{producto}/update', 'update');
+        Route::put('/producto/{producto}', 'update'); 
+        Route::get('/producto/{producto}/delete', 'destroy'); 
+        
 
     });
         

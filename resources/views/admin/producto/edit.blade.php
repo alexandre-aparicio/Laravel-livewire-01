@@ -5,13 +5,14 @@
       <div class="cart">
          <div class="cart-header mb-4">
             <h4>Atras
-               <a href="{{ url('admin/producto') }}" class="btn btn-primary float-end">Atras</a>
+               <a href="{{ url('admin/producto/' . $productos->id) }}" class="btn btn-primary float-end">Atras</a>
             </h4>
          </div>
          <div class="cart-body">
             
-            <form action="{{ url('admin/producto') }}" method="PUT" enctype="multipart/form-data">
+            <form action="{{ url('admin/producto/' . $productos->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
+                @method('PUT')
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                <li class="nav-item" role="presentation">
                   <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Home</button>
@@ -114,7 +115,7 @@
                </div>
             </div>
             <div>
-                <button type="submit" class="btn btn-primary">Añadir</button>
+                <button type="submit" class="btn btn-primary">Actualizar</button>
             </div>
             </form>
          </div>

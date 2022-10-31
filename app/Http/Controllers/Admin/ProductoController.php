@@ -82,4 +82,53 @@ class ProductoController extends Controller
         return redirect('admin/producto')->with('message', 'Articulo insertado correctamente');
 
     }
+    public function update(ProductFormRequest $request, int $product_id)
+    {
+
+        $validatedData = $request->validated();
+        $product = Category::findOrFail($validatedData['category_id'])
+        ->products()->where('id', $product_id)->first();
+
+        if($product) {
+
+            $product->update([
+
+                'category_id' => $validatedData['category_id'],
+                'name' => $validatedData['name'],
+                'slug' => Str::slug($validatedData['slug']),
+                'brand' => $validatedData['brand'],
+                'small_description' => $validatedData['small_description'], 
+                'description' => $validatedData['description'],     
+                'original_price' => $validatedData['original_price'],  
+                'selling_price' => $validatedData['selling_price'], 
+                'quantity' => $validatedData['quantity'],        
+                'status' => $request->status == true ?  '1' : '0',
+                'trending' => $request->trending == true ?  '1' : '0'
+    
+            ]);
+
+            return redirect('admin/producto')->with('message', 'Producto modificado con éxito');
+
+        } else {
+
+            return redirect('admin/producto')->with('message', 'producto no encoontrado');
+        }
+
+
+    }
+
+    public function destroy(int $product_id)
+    {
+        $product = Producto::findOrFail($product_id);
+        
+        if ($product->productImages()) {
+            foreach($product->productImages as $imagen){
+               echo $imagen->image;
+            };
+        } else {
+            echo "Nada que mostrar";
+        }
+
+        
+    }
 }

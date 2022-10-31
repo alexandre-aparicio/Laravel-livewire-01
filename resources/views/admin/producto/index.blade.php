@@ -36,8 +36,8 @@
                             <td>{{ $product->quantity }}</td>
                             <td>{{ $product->status }}</td>
                             <td>
-                                <a href="{{ url('admin/producto/' . $product->id . '/edit')}}" class="btn btn-sm btn-success">Editar</a>
-                                <a href="#" class="btn btn-sm btn-danger">Borrar</a>
+                                <a href="{{ url('admin/producto/' . $product->id . '/edit') }}" class="btn btn-sm btn-success">Editar</a>
+                                <a href="{{ url('admin/producto/' . $product->id . '/delete') }}"onclick="return confirm('Estas seguro?')" class="btn btn-sm btn-danger">Borrar</a>
 
                             </td>
                         </tr>
