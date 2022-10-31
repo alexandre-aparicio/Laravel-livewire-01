@@ -14,9 +14,19 @@ use App\Http\Requests\ProductFormRequest;
 class ProductoController extends Controller
 {
     public function index() {
-        
+
         $products = Producto::all();
         return view('admin.producto.index', compact('products'));
+    }
+
+    public function edit(int $product_id) {
+        $categorias = Category::all();
+        $marcas = Marca::all();
+        $productos= Producto::findOrFail($product_id);
+
+        
+        
+        return view('admin.producto.edit', compact('categorias', 'marcas', 'productos'));
     }
 
     public function create() {

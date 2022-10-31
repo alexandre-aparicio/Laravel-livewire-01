@@ -41,6 +41,9 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
         Route::get('/producto', 'index'); 
         Route::get('/producto/crear', 'create');
         Route::post('/producto', 'store');  
+        Route::get('/producto/{producto}/edit', 'edit'); 
+        Route::put('/producto/{producto}/update', 'update');
+
     });
         
     Route::get('/marca', App\Http\Livewire\Admin\Marca\Index::class);
