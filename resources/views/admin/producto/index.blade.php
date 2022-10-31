@@ -12,7 +12,6 @@
                 <h4>Productos
                     <a href="{{ url('admin/producto/crear') }}" class="btn btn-primary float-end">Nuevo Producto</a>
                 </h4>
-
             </div>
             <div class="cart-body">
                 <table class="table table-bordered table-striped">
@@ -24,8 +23,7 @@
                             <th>Price</th>
                             <th>Quantity</th>
                             <th>Status</th>
-                            <th>Action</th>
-                            
+                            <th>Action</th>                            
                         </tr>
                     </thead>
                     <tbody>
@@ -49,8 +47,7 @@
                         </tr>
                         @endforelse
                     </tbody>
-</table>
-
+                </table>
             </div>
         </div>
     </div>
