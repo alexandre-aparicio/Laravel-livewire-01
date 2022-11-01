@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
+use Illuminate\Support\Facades\File;
+
 use App\Models\Producto;
 use App\Models\Category;
 use App\Models\Marca;
@@ -68,7 +70,7 @@ class ProductoController extends Controller
                 $extension = $imageFile->getClientOriginalExtension();
                 $filename = time() . '-'. $i++ . '.' . $extension;
                 $imageFile->move($uploadPath ,$filename);
-                $finalImagePathName = $uploadPath . '-' . $filename;
+                $finalImagePathName = $uploadPath . '/' . $filename;
 
                 $product->productImages()->create([
                     'producto_id' => $product->id,
@@ -123,11 +125,15 @@ class ProductoController extends Controller
         
         if ($product->productImages()) {
             foreach($product->productImages as $imagen){
-               echo $imagen->image;
+               if(File::exists($imagen->image)){
+                File::delete($imagen->image);
+               }
             };
         } else {
             echo "Nada que mostrar";
         }
+        $product->delete();
+        return redirect()->back()->with('message', 'Producto borrado de forma satisfactoria');
 
         
     }

@@ -36,8 +36,7 @@ class CategoryFormRequest extends FormRequest
                 'required'
             ], 
             'image' => [
-                'nullable',
-                'mimes:jpg,jpeg,bmp,png'
+                'nullable'
             ]];
     }
 }

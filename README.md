@@ -14,8 +14,8 @@
 - laravel/ui
 - Bootstrap 5.1.3 y jquery 3.6
 
-- Crud de categorías en Admin
-- Crud de Marcas en Admin
-- Crud de Productos en Admin
+- Crud de categorías en Admin (Hecho parcialmente en liveWire)
+- Crud de Marcas en Admin (Totalidad en Livewire)
+- Crud de Productos en Admin 
     - Falta en la edición de productos eliminar o insertar imágenes. (Se hará con jQuery y Ajax)
 
